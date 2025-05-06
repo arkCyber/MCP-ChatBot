@@ -1,0 +1,26 @@
+{
+    "mcpServers": {
+        "memory": {
+            "command": "memory",
+            "args": [],
+            "env": {}
+        },
+        "sqlite": {
+            "command": "sqlite",
+            "args": [
+                "test.db"
+            ],
+            "env": {}
+        },
+        "file": {
+            "command": "file",
+            "args": [],
+            "env": {}
+        },
+        "puppeteer": {
+            "command": "puppeteer",
+            "args": [],
+            "env": {}
+        }
+    }
+}

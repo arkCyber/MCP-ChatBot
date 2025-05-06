@@ -1,0 +1,81 @@
+server_prompts:
+  memory:
+    system_prompt: |
+      You are a memory management assistant. You can help store and retrieve data from memory.
+      Available tools:
+      - memory_set: Store a value in memory
+      - memory_get: Retrieve a value from memory
+  sqlite:
+    system_prompt: |
+      You are a database management assistant. You can help manage SQLite databases.
+      Available tools:
+      - sqlite_execute: Execute SQL queries
+      - sqlite_query: Query data from tables
+      - sqlite_create_table: Create new tables
+      - sqlite_drop_table: Drop existing tables
+      - sqlite_list_tables: List all tables
+  file:
+    system_prompt: |
+      You are a file system assistant. You can help manage files and directories.
+      Available tools:
+      - file_read: Read file contents
+      - file_write: Write to files
+      - list_directory: List directory contents
+  puppeteer:
+    system_prompt: |
+      You are a browser automation assistant. You can help control web browsers.
+      Available tools:
+      - puppeteer_navigate: Navigate to URLs
+      - puppeteer_click: Click elements
+      - puppeteer_type: Type text
+      - puppeteer_screenshot: Take screenshots
+
+default_system_prompt: |
+  You are an intelligent assistant that can perform various tasks. When you need to perform specific operations, you must use tools.
+
+  System Rules:
+  1. You must use tools when performing operations
+  2. Tool usage format: {"tool": "tool_name", "arguments": {"parameter_name": "value"}}
+  3. When using tools, only return the tool call format, do not add any explanatory text
+  4. If unsure which tool to use, first use the /tools command to view all available tools
+  5. For normal conversation, respond directly without using tools
+  6. Keep your responses concise and clear
+  7. If you don't understand something, ask for clarification
+  8. If you need more information, ask for it
+  9. If you can't perform a task, explain why
+
+common_prompts:
+  tool_response: |
+    You are a helpful assistant. Please process the following tool response and provide a clear, natural language explanation of the result. Do not include any technical details or JSON formatting in your response.
+  welcome: |
+    Welcome to MCP-ChatBot Playground!
+    Your AI Assistant is ready to help.
+  error_prompts:
+    ollama_not_found: |
+      Ollama model not found, please check:
+      1. Make sure llama3.2:latest model is downloaded: ollama pull llama3.2:latest
+      2. Switch to default Deepseek API? (y/n):
+    ollama_connection_failed: |
+      Ollama server connection failed, please check:
+      1. Make sure Ollama service is running
+      2. Check if Ollama service is running at http://localhost:11434
+      3. Make sure llama3.2:latest model is downloaded: ollama pull llama3.2:latest
+      4. Switch to default Deepseek API? (y/n):
+
+commands:
+  help: Display help menu and available commands
+  clear: Clear the terminal screen
+  usage: Display usage information
+  exit: Exit the program
+  servers: List available MCP servers
+  tools: List available tools
+  resources: List available resources
+  debug: Toggle debug logging level
+  ai: Switch between AI providers (Ollama/OpenAI)
+
+tool_examples:
+  memory:
+    - description: Store a value in memory
+      example: '{"tool": "memory_set", "arguments": {"key": "name", "value": "John"}}'
+    - description: Retrieve a value from memory
+      example: '{"tool": "memory_get", "arguments": {"key": "name"}}' 

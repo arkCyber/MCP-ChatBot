@@ -1,0 +1,24 @@
+# Rust specific
+/target/
+**/*.rs.bk
+Cargo.lock
+
+# Environment variables
+.env
+
+# IDE specific
+.idea/
+.vscode/
+*.swp
+*.swo
+
+# OS specific
+.DS_Store
+Thumbs.db
+
+# Project specific
+.mcp_history
+history.txt
+logs/
+data/
+qdrant_storage/ 
